@@ -21,7 +21,8 @@ namespace StringTraning
             //Reverser("Мама мыла раму"); // ???????????????????????????
             // Contain("aaaa","aa");
             // ReturnPercent("Мама мыла раму очень усердно.");
-            Funk("Мама", "амам");
+            //Funk("Мама", "амам");
+            Mass("каждый охонтик желает знать где сидит фазан");
         }
 
         //1
@@ -118,6 +119,18 @@ namespace StringTraning
         static void Mass(string s)
         {
             string[] stMass = s.Split(' ');
+            foreach (string st in stMass)
+                Console.Write("\t{0}", st);
+            Console.WriteLine();
+
+            Array.Sort(stMass);
+            foreach(string st in stMass)
+                Console.Write("\t{0}",st);
+            Console.WriteLine();
+
+            Array.Clear(stMass, 2, 3);
+            foreach (string st in stMass)
+                Console.Write("\t{0}", st);
         }
 
         //7
