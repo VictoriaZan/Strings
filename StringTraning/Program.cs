@@ -115,6 +115,11 @@ namespace StringTraning
         ////оставшиеся слова возвращаются в отсортированном по алфавиту массиве.
         ////слова в строке разделяются пробелом.
 
+        static void Mass(string s)
+        {
+            string[] stMass = s.Split(' ');
+        }
+
         //7
         //Реализовать функцию, которая принимает строку и возвращает строку, составленный из последних букв всех слов.
 
@@ -188,46 +193,26 @@ namespace StringTraning
         //Реализовать функцию, которая принимает строку и возвращает новую строку образованную реверсом заданной строки.
 
 
-        static void Reverser(string s)
+        static string Reverser(string s)
         {
-            StringBuilder strin = new StringBuilder(s);
-            char[] res = new char[strin.Length];
-            for (int i = 0; res.Length > i; i++)
-            { 
-                res[i] = strin[(strin.Length)-1];
-                strin.Remove((strin.Length)-1, 1);
-            }
+            char[] res = s.ToCharArray();
+            Array.Reverse(res);
             string result = new string(res);
-            Console.WriteLine(result);
-
+            return result; 
         }
 
         //15) 
         //Реализовать функцию, которая принимает две строки(слова) и проверить, есть ли данные слова обратными между собой,
         // то есть первое слово читается слева направо так же, как второе слово справа налево.
 
-        static string Reversered(string s)
-        {
-            StringBuilder strin = new StringBuilder(s);
-            char[] res = new char[strin.Length];
-            for (int i = 0; res.Length > i; i++)
-            {
-                res[i] = strin[(strin.Length) - 1];
-                strin.Remove((strin.Length) - 1, 1);
-            }
-            string result = new string(res);
-            return result;
-        }
 
         static void Funk(string a, string b)
         { string ret = "";
-            string first = Reversered(a);
+            string first = Reverser(a);
             int res = string.Compare(first.ToLower(), b.ToLower());
             if (res == 0) { ret = "true"; }
             else { ret = "false"; }
             Console.WriteLine("Is thees string: {0}, {1} are reversed? {2}",a,b,ret );
         }
-
-
     }
 }
