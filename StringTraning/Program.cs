@@ -131,11 +131,25 @@ namespace StringTraning
             Array.Clear(stMass, 2, 3);
             foreach (string st in stMass)
                 Console.Write("\t{0}", st);
+            Console.WriteLine();
         }
 
         //7
         //Реализовать функцию, которая принимает строку и возвращает строку, составленный из последних букв всех слов.
-
+       /* static string GetLastChar(string s)
+        {
+            string[] arr = s.Split(' ');
+            char[] resalt = new char[arr.Length];
+            string resulta = "";
+            for(int i = 0; i< arr.Length; i++)
+            {
+                string str = arr[i];
+                char[] charArr = str.ToCharArray();
+                int index = charArr.Length -1;
+                char c = charArr[index];
+               
+            }
+        }*/
 
 
         //8 
