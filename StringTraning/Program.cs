@@ -116,7 +116,7 @@ namespace StringTraning
         ////оставшиеся слова возвращаются в отсортированном по алфавиту массиве.
         ////слова в строке разделяются пробелом.
 
-        static void Mass(string s)
+      /*  static void Mass(string s)
         {
             string[] stMass = s.Split(' ');
             foreach (string st in stMass)
@@ -129,10 +129,14 @@ namespace StringTraning
             Console.WriteLine();
 
             Array.Clear(stMass, 2, 3);
-            foreach (string st in stMass)
-                Console.Write("\t{0}", st);
+            for(int i = 0; i< stMass.Length; i++)
+                if (stMass[i] != null)
+
+                
+
+
             Console.WriteLine();
-        }
+        }*/
 
         //7
         //Реализовать функцию, которая принимает строку и возвращает строку, составленный из последних букв всех слов.
