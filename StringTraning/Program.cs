@@ -22,7 +22,9 @@ namespace StringTraning
             // Contain("aaaa","aa");
             // ReturnPercent("Мама мыла раму очень усердно.");
             //Funk("Мама", "амам");
-            Mass("каждый охонтик желает знать где сидит фазан");
+            // Mass("каждый охонтик желает знать где сидит фазан");
+            //Console.WriteLine(getCharCountv2("маМа мыла раму","мама"));
+            Console.WriteLine(  GetLastChar("мама мыла раму"));
         }
 
         //1
@@ -42,6 +44,11 @@ namespace StringTraning
                     result++;
             }
             return result;
+        }
+
+        static int getCharCountv2(string a, string b)
+        {
+            return ((a.Length) - a.ToLower().Replace(b.ToLower().Substring(0, 1), "").Length);
         }
 
 
@@ -92,11 +99,19 @@ namespace StringTraning
 
         static void Contain(string a, string b)
         { int res = 0;
-            if (a!="" && b!="")
+            if (a!="" || b!="")
             {
                 Console.WriteLine((a.Length - a.Replace(b, "").Length)/ b.Length);
             }
             else Console.WriteLine(res);
+        }
+
+        static int ContainV2(string a, string b)
+        {
+            if (a == "" || b == "")
+                return 0;
+            else
+                return (a.Length - a.Replace(b, "").Length) / b.Length;
         }
 
         //5
@@ -116,7 +131,7 @@ namespace StringTraning
         ////оставшиеся слова возвращаются в отсортированном по алфавиту массиве.
         ////слова в строке разделяются пробелом.
 
-      /*  static void Mass(string s)
+        static void Mass(string s)
         {
             string[] stMass = s.Split(' ');
             foreach (string st in stMass)
@@ -129,31 +144,30 @@ namespace StringTraning
             Console.WriteLine();
 
             Array.Clear(stMass, 2, 3);
-            for(int i = 0; i< stMass.Length; i++)
+            List<string> arr = new List<string>();
+            for (int i = 0; i < stMass.Length; i++)
                 if (stMass[i] != null)
-
-                
-
-
+                {
+                    arr.Add(stMass[i]);
+                }
+            
             Console.WriteLine();
-        }*/
+        }
 
         //7
         //Реализовать функцию, которая принимает строку и возвращает строку, составленный из последних букв всех слов.
-       /* static string GetLastChar(string s)
+         static string GetLastChar(string s)
         {
             string[] arr = s.Split(' ');
-            char[] resalt = new char[arr.Length];
             string resulta = "";
-            for(int i = 0; i< arr.Length; i++)
-            {
-                string str = arr[i];
-                char[] charArr = str.ToCharArray();
-                int index = charArr.Length -1;
-                char c = charArr[index];
-               
+            foreach(var a in arr)
+            {   if (a != "")
+                {
+                    resulta += a[a.Length - 1];
+                }
             }
-        }*/
+            return resulta;
+        }
 
 
         //8 
@@ -168,6 +182,18 @@ namespace StringTraning
                 { result++; }
             }
             return result;
+        }
+
+        static int ReturnCountV2(string a)
+        {
+            int count = 0;
+            string[] arr = a.Split(' ');
+            foreach (var ar in arr)
+            {
+                if (char.IsUpper(ar[0]))
+                    count++;
+            }
+            return count;
         }
 
         //9) 
@@ -193,31 +219,47 @@ namespace StringTraning
         //Функция 2. Преобразует все слова по правилу: оставить в слове только последние вхождения каждого символа
         //Реализовать на C# с помощью стандартных функций класса String, StringBuilder (без использования регулярных выражений)
 
+        static string FirstFunction(string a)
+        {
+            string[] sb = a.Split(' ');
+            foreach (var s in sb)
+            {
+                s.Replace(s[0].ToString(), "");
+            }
+            return string.Join(" ", sb);  
+        }
+
+        static void SecondFunction(string a)
+        {
+            string[] st = a.Split(' ');
+            foreach (var s in st)
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                   s.LastIndexOfAny()
+                }
+            }
+        }
 
         //11) 
         //Реализовать функцию, которая принимает текст и заменяет в нем все символы ‘+’ на ‘—‘.
-        static void Change(string s)
+        static string Change(string s)
         {
-            StringBuilder st = new StringBuilder(s);
-            st.Replace('+', '-');
-            Console.WriteLine(st);
+           return s.Replace('+','-');
         }
 
         //12) 
         //Реализовать функцию, которая принимает текст и заменяет в нем все символы ‘+’ на ‘+++’.
-        static void ChangeLarge(string s)
+        static string ChangeLarge(string s)
         {
-            StringBuilder st = new StringBuilder(s);
-            st.Replace("+", "+++");
-            Console.WriteLine(st);
+            return s.Replace("+","+++");
         }
 
         //13) 
         //Реализовать функцию, которая принимает текст и определяет в нем позицию первой точки ‘.‘. Считать, что первый символ в строке имеет позицию 1.
-        static void Dot(string s)
+        static int Dot(string s)
         {
-            int res = s.IndexOf('.', 0) + 1;
-            Console.WriteLine(res);
+            return s.IndexOf('.',0)+1;
         }
 
         //14)
